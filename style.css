@@ -1,0 +1,352 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
+    
+}
+html{
+    overflow-x: hidden;
+}
+body {
+    width: 100%;
+    height: 100vh;
+    background: url("images/hero-bg.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+   
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding: 0 10px;
+  
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    padding: 22px 0;
+    max-width: 1200px;
+    margin: 0 auto;
+    justify-content: space-between;
+}
+
+.navbar .logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    gap: 10px;
+}
+
+.navbar .logo img {
+    width: 40px;
+    border-radius: 50%;
+}
+
+.navbar .links {
+    display: flex;
+    list-style: none;
+    gap: 35px;
+}
+
+.navbar .logo h2 {
+    color: white;
+    font-size: 1.7rem;
+    font-weight: 600;
+}
+
+.navbar .links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: all 0.5s linear;
+}
+
+.navbar .links a:hover {
+    color: #19e8ff;
+}
+
+.navbar .login-btn {
+    border: none;
+    outline: none;
+    color: #275360;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 10px 18px;
+    border-radius: 3px;
+    cursor: pointer;
+    background-color: #fff;
+}
+
+.mobile-navbar-icon {
+    filter: invert(100%);
+    width: 2rem;
+    display: none;
+    cursor: pointer;
+}
+
+.close {
+    display: none;
+    filter: invert(100%);
+}
+
+@media (max-width:850px) {
+
+    .mobile-navbar-icon {
+        margin-left: 4rem;
+        display: block;
+        z-index: 999;
+    }
+
+    .navbar .logo img {
+        display: none;
+    }
+
+    .navbar .links {
+        width: 100%;
+        height: 100vh;
+        background-color: #fff;
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        transform: translateX(100%);
+        transition: all 0.5s linear;
+        visibility: hidden;
+        pointer-events: none;
+        opacity: 0;
+
+
+    }
+    .navbar .links a{
+        color: black;
+    }
+    .navbar .links a:hover{
+       color: #0097a7;
+    }
+    .active .navbar .links { 
+        visibility: visible;
+        transform: translateX(0);
+        pointer-events: auto;
+        opacity: 1;
+    }
+    .active .close{
+        display: block;
+    }
+    .active .menu{
+        display: none;
+        filter: invert(0);
+        cursor: pointer;
+    }
+
+
+}
+
+.blur-bg-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    pointer-events: none;
+    height: 100%;
+    backdrop-filter: blur(5px);
+    transition: 0.1 ease;
+}
+
+.show-popup .blur-bg-overlay {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.form-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    max-width: 720px;
+    width: 100%;
+    opacity: 0;
+    pointer-events: none;
+    background: #fff;
+    border: 2px solid white;
+    transform: translate(-50%, -100%);
+}
+
+.show-popup .form-popup {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%);
+    transition: tranform 0.3s ease, opacity 0.1s;
+}
+
+.close-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    color: #878484;
+    cursor: pointer;
+}
+
+.form-popup .form-box {
+    display: flex;
+}
+
+.form-box .for-details {
+    max-width: 330px;
+    width: 100%;
+    display: flex;
+    padding: 0 20px;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+}
+
+.login .for-details {
+    background: url("images/login-img.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.signup .for-details {
+    background: url("images/signup-img.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.form-box h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.form-box .form-content {
+    width: 100%;
+    padding: 35px;
+}
+
+form .input-feild {
+    height: 50px;
+    width: 100%;
+    margin-top: 20px;
+    position: relative;
+}
+
+form .input-feild input {
+    width: 100%;
+    height: 100%;
+    padding: 0 15px;
+    outline: none;
+    font-size: 0.95rem;
+    border-radius: 3px;
+    border: 1px solid #717171;
+}
+
+.input-feild input:focus {
+    border-color: #00bcd4;
+}
+
+.input-feild input:is(:focus, :valid) {
+    padding: 16px 15px 0;
+}
+
+form .input-feild label {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    color: #717171;
+    pointer-events: none;
+    transform: translateY(-50%);
+    transition: 0.5s ease;
+}
+
+.input-feild input:is(:focus, :valid)~label {
+    transform: translateY(-120%);
+    font-size: 0.75rem;
+    color: #00bcd4;
+}
+
+.form-box a {
+    color: #00bcd4;
+    text-decoration: none;
+}
+
+.form-box a:hover {
+    text-decoration: underline;
+}
+
+.form-box :where(.forgot-password, .policy-text) {
+    display: inline-flex;
+    margin-top: 14px;
+    font-size: 0.95rem;
+}
+
+form button {
+    width: 100%;
+    outline: none;
+    border: none;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 14px 0;
+    border-radius: 3px;
+    cursor: pointer;
+    background-color: #00bcd4;
+    margin: 25px 0;
+    color: white;
+    transition: 0.3s ease;
+
+}
+
+form button:hover {
+    background-color: #0097a7;
+}
+
+.form-box .bottom-links {
+    text-align: center;
+}
+
+.form-popup .signup,
+.form-popup.show-signup .login {
+    display: none;
+}
+.form-popup.show-signup .signup {
+    display: flex;
+}
+
+.signup .policy-text {
+    display: flex;
+    align-items: center;
+}
+
+.signup .policy-text input {
+    width: 14px;
+    height: 14px;
+    margin-right: 7px;
+}
+
+@media (max-width: 760px) {
+    .form-popup {
+        width: 95%;
+    }
+
+    .form-box .for-details {
+        display: none;
+    }
+
+    .form-box .form-content {
+        padding: 30px 20px;
+    }
+    
+}

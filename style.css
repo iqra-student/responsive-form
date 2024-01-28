@@ -153,6 +153,15 @@ header {
 
 }
 
+@media (max-width : 500px) {
+    
+    .mobile-navbar-icon {
+        margin-left: 1rem;
+        
+    }
+}
+
+
 .blur-bg-overlay {
     position: fixed;
     top: 0;
@@ -271,12 +280,12 @@ form .input-feild label {
     transform: translateY(-50%);
     transition: 0.5s ease;
 }
-
-.input-feild input:is(:focus, :valid)~label {
+ 
+ .input-feild input:is(:focus, :valid)~label {
     transform: translateY(-120%);
     font-size: 0.75rem;
     color: #00bcd4;
-}
+} 
 
 .form-box a {
     color: #00bcd4;
